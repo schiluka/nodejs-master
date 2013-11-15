@@ -1,0 +1,20 @@
+{
+  "name": "express-jquery",
+  "version": "0.0.1",
+  "description": "vm desc",
+  "main": "app.js",
+  "dependencies": {
+    "express": "~3.4.2",
+	"ejs": "latest"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "keywords": [
+    "hi"
+  ],
+  "author": "San",
+  "license": "BSD"
+}
