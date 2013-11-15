@@ -29,32 +29,33 @@ app.get('/', function(req, res) {
 });
 
 app.get('/submitForm', function(req, res) {
-	console.log('form submitted:' + req.query.user);
-	//res.render('output');
-	res.send('//www.youtube.com/embed/JhtdC86wWIk');
+  console.log('form submitted:' + req.query.user);
+  //res.render('output');
+  res.send('//www.youtube.com/embed/JhtdC86wWIk');
 });
 
 app.get('/async', function(req, res, next) {
-    var userId1;
-	var userId2;
-	console.log('async started');
-    async.series([
-        //1st db call or web service call
-        function(callback) {
-			userId1 = 'result1 from first function'; //Set the userId here, so the next task can access it
-			callback(null, 'one');
-        },
-        //second db call or web service call
-        function(callback) {
-            userId2 = userId1 + '<br>result2 from second function';
+  var userId1;
+  var userId2;
+  console.log('async started');
+  async.series([
+  	//1st db call or web service call
+    function(callback) {
+    	userId1 = 'result1 from first function'; //Set the userId here, so the next task can access it
+      callback(null, 'one');
+    },
+		//second db call or web service call
+		function(callback) {
+    	userId2 = userId1 + '<br>result2 from second function';
 			callback(null, 'two');
-        }
+		}
     ], function(err, results) { //This function gets called after the two tasks have called their "task callbacks"
-        if (err) return next(err);
-        //Here locals will be populated with 'user' and 'posts'
-		console.log(results);
-        res.send('<h1>'+userId2+'</h1>');
-    });
+    	if (err) return next(err);
+      //Here locals will be populated with 'user' and 'posts'
+			console.log(results);
+      res.send('<h1>'+userId2+'</h1>');
+		}
+	);
 });
 
 http.createServer(app).listen(app.get('port'), function(){
