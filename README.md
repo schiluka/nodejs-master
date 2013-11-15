@@ -4,6 +4,6 @@ nodejs-master
 playing with nodejs 
 
 
-  npm install
+    >npm install
   
-  node app.js
+    >node app.js
