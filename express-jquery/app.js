@@ -51,7 +51,7 @@ app.get('/async', function(req, res, next) {
 		}
     ], function(err, results) { //This function gets called after the two tasks have called their "task callbacks"
     	if (err) return next(err);
-      //Here locals will be populated with 'user' and 'posts'
+      //Here locals will be populated with 'userId1' and 'userId2'
 			console.log(results);
       res.send('<h1>'+userId2+'</h1>');
 		}
