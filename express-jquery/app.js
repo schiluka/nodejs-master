@@ -39,12 +39,12 @@ app.get('/async', function(req, res, next) {
   var userId2;
   console.log('async started');
   async.series([
-  	//1st db call or web service call
+  	//function1 - db or service call
     function(callback) {
     	userId1 = 'result1 from first function'; //Set the userId here, so the next task can access it
       callback(null, 'one');
     },
-		//second db call or web service call
+		//function2 - another db or service call
 		function(callback) {
     	userId2 = userId1 + '<br>result2 from second function';
 			callback(null, 'two');
