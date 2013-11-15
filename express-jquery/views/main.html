@@ -1,0 +1,26 @@
+<html>
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+</head>
+<body>
+	Username: <input type="text" name="user">
+	<button>Get Server Content</button>
+	<div id="div1">
+		<iframe id="idVideo" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+	</div>
+</body>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $.ajax({url:"submitForm",success:function(result){
+      //$("#div1").html(result);
+	  alert('result:' + result);
+	  var link = result;
+	  $("#idVideo").attr( "src", result);
+	  
+    }});
+  });
+});
+</script>
+</html>
